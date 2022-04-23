@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6dfb566d7097b4783a3dcf02af08c0, type: 3}
   m_Name: New GAMES Render Pipeline Asset
   m_EditorClassIdentifier: 
+  useDynamicBatching: 1
+  useGPUInstancing: 0
+  useSRPBatcher: 1

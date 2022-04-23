@@ -1,12 +1,10 @@
-Shader "GRP/SimpleLit"
+Shader "GRP/UnLit"
 {
     Properties
     {
         [MainTexture] _BaseMap("Texture", 2D) = "white" {}
         [MainColor]_BaseColor("Color", Color) = (1, 1, 1, 1)
 
-        _SpecularStrength("SpecularStrength",Float) = 1.0
-        
         [Toggle(_CLIPPING)]_Clipping ("Alpha Clipping", Float) = 0
         _Cutoff("Alpha CutOff",Range(0.0,1.0)) = 0.5
 
@@ -17,29 +15,22 @@ Shader "GRP/SimpleLit"
 
     SubShader
     {
-        Tags 
-        { 
-            "RenderType" = "Opaque" 
-        }
+        Tags { "RenderType"="Opaque" }
 
         Pass
         {
-            Name "Blinn-Phong"
-            Tags { "LightMode" = "GRPSimpleLit" }
+            Name "UnLit"
 
-            // Use same blending / depth states as Standard shader
             Blend[_SrcBlend][_DstBlend]
-            ZWrite[_ZWrite]
+            ZWrite [_ZWrite]
 
             HLSLPROGRAM
-            #pragma fragmentoption ARB_precision_hint_nicest
-            #pragma target 3.5
+            #pragma shader_feature _CLIPPING
+            #pragma vertex UnLitVertex
+            #pragma fragment UnLitFragment
 
-            #pragma vertex SimpleLitVertex
-            #pragma fragment SimpleLitFragment
-
-            #include "SimpleLitInput.hlsl"
-            #include "SimpleLitPass.hlsl"
+            #include "Assets/GAMESRenderPipeline/Shaders/UnLitInput.hlsl"
+            #include "Assets/GAMESRenderPipeline/Shaders/UnLitPass.hlsl"
             
             ENDHLSL
         }

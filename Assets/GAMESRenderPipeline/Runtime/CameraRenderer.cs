@@ -2,30 +2,35 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 public partial class CameraRenderer
-{
-    ScriptableRenderContext renderContext;
+{	
+	
+    private ScriptableRenderContext renderContext;
+	private const string bufferName = "GRP Single Camera";
+	private CullingResults cullResults;
 
-    Camera camera;
-	CullingResults cullResults;
+	private Camera camera;
+	private Lighting lighting = new Lighting();
+	
+	private static ShaderTagId unlitShaderTagId = new ShaderTagId("SRPDefaultUnlit");
+	private static ShaderTagId defaultLitShaderTagId = new ShaderTagId("GRPSimpleLit");
 
-	const string bufferName = "GRP Single Camera";
 	CommandBuffer cmd = new CommandBuffer {name = bufferName};
 
-	static ShaderTagId defaultLitShaderTagId = new ShaderTagId("GRPSimpleLit");
-
-	public void Render (ScriptableRenderContext renderContext, Camera camera) {
+	public void Render (ScriptableRenderContext renderContext, Camera camera,bool useDynamicBatching,bool useGPUInstancing) {
 		this.renderContext = renderContext;
 		this.camera = camera;
 
 		PrepareBuffer();
 		PrepareForSceneWindow();
 
+		//执行剔除
 		if (!Cull()) {
 			return;
 		}
 
 		Setup();
-		DrawVisibleGeometry();
+		lighting.Setup(renderContext,cullResults);
+		DrawVisibleGeometry(useDynamicBatching,useGPUInstancing);
 		DrawUnsupportedShaders();
 		DrawGizmos();
 		Submit();
@@ -34,6 +39,7 @@ public partial class CameraRenderer
 	void Setup () {
 		renderContext.SetupCameraProperties(camera);
 		CameraClearFlags flags = camera.clearFlags;
+		//清空渲染目标，深度、颜色、使用何种颜色进行清空
 		cmd.ClearRenderTarget(
 			flags <= CameraClearFlags.Depth, 
 			flags == CameraClearFlags.Color, 
@@ -43,13 +49,19 @@ public partial class CameraRenderer
 		ExecuteBuffer();
 	}
 
-	void DrawVisibleGeometry () {
-		var sortingSettings = new SortingSettings(camera){
+	void DrawVisibleGeometry (bool useDynamicBatching,bool useGPUInstancing) {
+		var sortingSettings = new SortingSettings(camera)
+		{
 			criteria = SortingCriteria.CommonOpaque
 		};
-		var drawingSettings = new DrawingSettings(
-			defaultLitShaderTagId,sortingSettings
-		);
+		var drawingSettings = new DrawingSettings(unlitShaderTagId,sortingSettings)
+		{
+			enableDynamicBatching = useDynamicBatching,
+			enableInstancing = useGPUInstancing
+		};
+		
+		drawingSettings.SetShaderPassName(1, defaultLitShaderTagId);
+
 		var filteringSettings = new FilteringSettings(RenderQueueRange.all);
 
 		renderContext.DrawRenderers(

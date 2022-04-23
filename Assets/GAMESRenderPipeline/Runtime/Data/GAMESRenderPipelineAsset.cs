@@ -4,9 +4,13 @@ using UnityEngine.Rendering;
 [CreateAssetMenu(menuName = "GAMES202/Rendering/new GRP Asset")]
 public class GAMESRenderPipelineAsset : RenderPipelineAsset
 {
+	[SerializeField] bool useDynamicBatching = true;
+    [SerializeField] bool useGPUInstancing = true;
+    [SerializeField] bool useSRPBatcher = true;
+
     protected override RenderPipeline CreatePipeline()
     {
-        return new GAMESRenderPipeline();
+        return new GAMESRenderPipeline(useDynamicBatching,useGPUInstancing,useSRPBatcher);
     }     
 }
 
