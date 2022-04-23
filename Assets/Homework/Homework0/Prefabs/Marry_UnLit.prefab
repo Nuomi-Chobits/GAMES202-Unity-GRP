@@ -51,9 +51,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 4e0dcb0792484224c91e1ebda6663731, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb35731e0d409a346b5d4d5d942b4075, type: 2}
     - target: {fileID: 919132149155446097, guid: 4e0dcb0792484224c91e1ebda6663731, type: 3}
       propertyPath: m_Name
-      value: Marry
+      value: Marry_UnLit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e0dcb0792484224c91e1ebda6663731, type: 3}

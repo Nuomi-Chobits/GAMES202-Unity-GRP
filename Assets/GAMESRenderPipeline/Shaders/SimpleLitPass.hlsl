@@ -23,9 +23,8 @@ struct Varyings
 Varyings SimpleLitVertex(Attributes input)
 {
     Varyings output = (Varyings)0;
-    output.positionCS   = TransformObjectToHClip(input.positionOS);
-    output.positionOS   = TransformObjectToWorld(input.positionOS);
-    
+    output.positionCS   = TransformObjectToHClip(input.positionOS.xyz);
+    output.positionOS   = TransformObjectToWorld(input.positionOS.xyz);
     output.normal       = TransformObjectToWorldNormal(input.normalOS);
     output.uv           = TRANSFORM_TEX(input.texcoord, _BaseMap);
     return output;
