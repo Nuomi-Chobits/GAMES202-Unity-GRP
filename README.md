@@ -12,4 +12,5 @@ Unity：Unity 2021.3.0f1c1
 
 #### Blinn-Phong
 
-![Blinn-Phong](https://user-images.githubusercontent.com/89976115/164894699-6f332e4a-b924-4fcc-bb5a-07c5c4d4fc45.gif)
+<div align=center><img src="https://user-images.githubusercontent.com/89976115/164894699-6f332e4a-b924-4fcc-bb5a-07c5c4d4fc45.gif" width="50%" alt="Homework0"></div>
+
