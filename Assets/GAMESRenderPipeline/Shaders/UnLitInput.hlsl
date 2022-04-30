@@ -1,7 +1,7 @@
 #ifndef GRP_UNLITINPUT_INCLUDED
 #define GRP_UNLITINPUT_INCLUDED
 
-#include "Assets/GAMESRenderPipeline/ShaderLibrary/Common.hlsl"
+#include "../ShaderLibrary/Common.hlsl"
 
 CBUFFER_START(UnityPerMaterial)
     half4 _BaseColor;

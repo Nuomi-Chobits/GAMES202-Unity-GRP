@@ -43,5 +43,21 @@ Shader "GRP/SimpleLit"
             
             ENDHLSL
         }
+
+        Pass
+        {
+            Name "Shadow"
+            Tags { "LightMode" = "ShadowCaster"}
+
+            ColorMask 0
+
+            HLSLPROGRAM
+            #pragma target 3.5
+            #pragma vertex ShadowCasterVertex
+            #pragma fragment ShadowCasterFragment
+
+            #include "ShadowCasterPass.hlsl"
+            ENDHLSL
+        }
     }
 }
