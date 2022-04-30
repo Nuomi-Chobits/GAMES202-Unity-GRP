@@ -1,8 +1,14 @@
 # GAMES202_Unity GRP
 
-GAMES Real Time High Quality Rendering Pipline with Unity SRP
+GAMES Real Time High Quality Rendering Pipline with Unity SRP 
 
-Unity：Unity 2021.3.0f1c1
+Unity：Unity 2021.3.0f1c1+
+
+# GAMES 202
+
+course information ：https://sites.cs.ucsb.edu/~lingqi/teaching/games202.html
+
+bilibili : https://www.bilibili.com/video/BV1YK4y1T7yY
 
 ## Preview Links:
 
