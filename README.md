@@ -13,7 +13,7 @@ bilibili : https://www.bilibili.com/video/BV1YK4y1T7yY
 ## Preview Links:
 
 - [Blinn-Phong](https://github.com/Nuomi-Chobits/GAMES202-Unity-Real-Time-High-Quality-Rendering#blinn-phong)
-- [Shadow Map(Hard)]
+- [Shadow Map(Hard)](https://github.com/Nuomi-Chobits/GAMES202-Unity-GRP/blob/main/README.md#shadow-map)
 
 ## Homework0
 
