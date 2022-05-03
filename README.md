@@ -25,5 +25,6 @@ bilibili : https://www.bilibili.com/video/BV1YK4y1T7yY
 
 #### Shadow Map
 
-<div align=center><img src="https://user-images.githubusercontent.com/89976115/166482798-03b5facf-14af-414f-9dce-83fe7ff3c2d0.png" width="50%" alt="Homework1"></div>
+<div align=center><img src="https://user-images.githubusercontent.com/89976115/166482985-b4e3e095-0459-443f-b195-c8403bc1779c.png" width="50%" alt="Homework1"></div>
 <div align=center><img src="https://user-images.githubusercontent.com/89976115/166441165-1bb0d92a-1c36-4bb7-a068-45f539c64d9c.png" width="50%" alt="Homework1"></div>
+
