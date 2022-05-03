@@ -2,6 +2,7 @@
 #define GRP_SIMPLELITPASS_INCLUDED
 
 #include "Assets/GAMESRenderPipeline/ShaderLibrary/Common.hlsl"
+#include "Assets/GAMESRenderPipeline/ShaderLibrary/Shadows.hlsl"
 #include "Assets/GAMESRenderPipeline/ShaderLibrary/Lighting.hlsl"
 
 struct Attributes
@@ -38,7 +39,7 @@ half4 SimpleLitFragment(Varyings input): SV_Target
     half4 base_color       = pow(abs(base_color_gamma),2.2);
     half3 viewDirWS = GetWorldSpaceViewDir(input.positionWS);
 
-    final_color = GRPFragmentBlinnPhong(base_color,input.normal,viewDirWS,_SpecularStrength); 
+    final_color = GRPFragmentBlinnPhong(base_color,input.normal,viewDirWS, input.positionWS,_SpecularStrength);
     final_color = pow(abs(final_color),1.0/2.2);
 
     return final_color;
