@@ -9,7 +9,7 @@
 //¡°Clamp¡±, ¡°Repeat¡±, ¡°Mirror¡± or ¡°MirrorOnce¡± (required) set up texture wrap mode.
 // Wrap modes can be specified per - axis(UVW), e.g.¡°ClampU_RepeatV¡±.
 //¡°Compare¡± (optional) set up sampler for depth comparison; use with HLSL SamplerComparisonState type and SampleCmp / SampleCmpLevelZero functions.
-#define SHADOW_SAMPLER sampler_linear_clamp_compare
+#define SHADOW_SAMPLER sampler_point_clamp_compare
 
 //D3D11.hlsl
 //#define TEXTURE2D_SHADOW(textureName)         TEXTURE2D(textureName)

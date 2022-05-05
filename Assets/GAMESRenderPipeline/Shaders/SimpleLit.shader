@@ -56,6 +56,8 @@ Shader "GRP/SimpleLit"
             #pragma vertex ShadowCasterVertex
             #pragma fragment ShadowCasterFragment
 
+            #pragma multi_compile _ _DIRECTIONAL_PCF3 _DIRECTIONAL_PCF5 _DIRECTIONAL_PCF7
+
             #include "ShadowCasterPass.hlsl"
             ENDHLSL
         }

@@ -13,6 +13,13 @@ public class Shadows
 
     static int dirShadowAtlasId = Shader.PropertyToID("_DirectionalShadowAtlas");
     static int dirShadowMatricesId = Shader.PropertyToID("_DirectionalShadowMatrices");
+    static int shadowAtlasSizeId = Shader.PropertyToID("_ShadowAtlasSize");
+
+    static string[] directionalFilterKeywords = {
+        "_DIRECTIONAL_PCF3",
+        "_DIRECTIONAL_PCF5",
+        "_DIRECTIONAL_PCF7",
+    };
 
     static Matrix4x4[] dirShadowMatrices = new Matrix4x4[maxShadowedDirectionalLightCount];
 
@@ -47,7 +54,7 @@ public class Shadows
                     RenderDirectionalCSM();
                     break;
             }
-            
+     
         }
         else
         {
@@ -75,6 +82,7 @@ public class Shadows
             RenderDirectionalShadows(i, split, tileSize);
         }
         cmd.SetGlobalMatrixArray(dirShadowMatricesId, dirShadowMatrices);
+        SetKeywords();
         cmd.EndSample(cmdName);
         ExecuteBuffer();
     }
@@ -96,8 +104,25 @@ public class Shadows
             RenderDirectionalShadows(i, split, tileSize);
         }
         cmd.SetGlobalMatrixArray(dirShadowMatricesId, dirShadowMatrices);
+        SetKeywords();
         cmd.EndSample(cmdName);
         ExecuteBuffer();
+    }
+
+    void SetKeywords()
+    {
+        int enabledIndex = (int)shadowSettings.shadowFilterMode;
+        for (int i = 0; i < directionalFilterKeywords.Length; i++)
+        {
+            if (i == enabledIndex)
+            {
+                cmd.EnableShaderKeyword(directionalFilterKeywords[i]);
+            }
+            else
+            {
+                cmd.DisableShaderKeyword(directionalFilterKeywords[i]);
+            }
+        }
     }
     void RenderDirectionalShadows(int index, int split, int tileSize)
     {

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowSettings:
     shadowType: 0
-    shadowResolution: 1024
-    maxDistance: 26.15
+    shadowResolution: 4096
+    shadowFilterMode: 1
+    maxDistance: 50
   useDynamicBatching: 1
   useGPUInstancing: 0
   useSRPBatcher: 1

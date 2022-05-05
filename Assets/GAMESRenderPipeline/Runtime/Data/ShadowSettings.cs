@@ -18,8 +18,17 @@ public class ShadowSettings
         _4096x4096 = 4096
     }
 
+    public enum ShadowFilterMode
+    {
+        PCF3x3, 
+        PCF5x5, 
+        PCF7x7
+    }
+
     public ShadowType shadowType;
     public ShadowResolution shadowResolution = ShadowResolution._1024x1024;
+    public ShadowFilterMode shadowFilterMode = ShadowFilterMode.PCF5x5;
+
     [Min(0f)] public float maxDistance = 100f;
 
 }
