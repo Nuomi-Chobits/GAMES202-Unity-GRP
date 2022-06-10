@@ -59,11 +59,11 @@ public class Shadows
         else
         {
             //兼容webgl
-            //为了减少因SM缺失生成的着色器变体生成一张1px的SM，管线上这样设计正确性存疑
             cmd.GetTemporaryRT(dirShadowAtlasId, 1, 1, 32, FilterMode.Bilinear, RenderTextureFormat.Shadowmap);
         }
     }
 
+    //SM
     void RenderDirectionalSM()
     {
         int shadowResolution = (int)shadowSettings.shadowResolution;
@@ -83,6 +83,7 @@ public class Shadows
         }
         cmd.SetGlobalMatrixArray(dirShadowMatricesId, dirShadowMatrices);
         SetKeywords();
+        cmd.SetGlobalVector(shadowAtlasSizeId, new Vector4(tileSize, 1f / tileSize));
         cmd.EndSample(cmdName);
         ExecuteBuffer();
     }
