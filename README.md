@@ -14,7 +14,7 @@ bilibili : https://www.bilibili.com/video/BV1YK4y1T7yY
 
 - [Blinn-Phong](https://github.com/Nuomi-Chobits/GAMES202-Unity-Real-Time-High-Quality-Rendering#blinn-phong)
 - [Shadow Map](https://github.com/Nuomi-Chobits/GAMES202-Unity-GRP/blob/main/README.md#shadow-map)
-- [PCF(Percentage Closer Filter)](https://github.com/Nuomi-Chobits/GAMES202-Unity-GRP/edit/main/README.md#pcfpercentage-closer-filter)
+- [PCF(Percentage Closer Filter)](https://github.com/Nuomi-Chobits/GAMES202-Unity-GRP/blob/main/README.md#pcfpercentage-closer-filter)
 
 ## Homework0
 
