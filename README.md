@@ -31,4 +31,4 @@ bilibili : https://www.bilibili.com/video/BV1YK4y1T7yY
 
 ### PCF(Percentage Closer Filter)
 
-<div align=center><img src="https://user-images.githubusercontent.com/89976115/174703625-5fd7ea4e-5582-4ff2-9774-78f9dd37bbe3.gif" width="50%" alt="Homework1"></div>
+<div align=center><img src="https://user-images.githubusercontent.com/89976115/174703625-5fd7ea4e-5582-4ff2-9774-78f9dd37bbe3.gif" alt="Homework1"></div>
