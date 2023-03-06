@@ -38,6 +38,8 @@ Shader "GRP/SimpleLit"
             #pragma vertex SimpleLitVertex
             #pragma fragment SimpleLitFragment
 
+            #pragma multi_compile _ _DIRECTIONAL_PCF3 _DIRECTIONAL_PCF5 _DIRECTIONAL_PCF7
+
             #include "SimpleLitInput.hlsl"
             #include "SimpleLitPass.hlsl"
             
@@ -55,8 +57,6 @@ Shader "GRP/SimpleLit"
             #pragma target 3.5
             #pragma vertex ShadowCasterVertex
             #pragma fragment ShadowCasterFragment
-
-            #pragma multi_compile _ _DIRECTIONAL_PCF3 _DIRECTIONAL_PCF5 _DIRECTIONAL_PCF7
 
             #include "ShadowCasterPass.hlsl"
             ENDHLSL

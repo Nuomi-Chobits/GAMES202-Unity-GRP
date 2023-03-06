@@ -58,7 +58,7 @@ public class Shadows
         }
         else
         {
-            //兼容webgl
+            //鍏煎webgl
             cmd.GetTemporaryRT(dirShadowAtlasId, 1, 1, 32, FilterMode.Bilinear, RenderTextureFormat.Shadowmap);
         }
     }
@@ -129,16 +129,16 @@ public class Shadows
     {
         ShadowedDirectionalLight light = shadowedDirectionalLights[index];
         var shadowSettings = new ShadowDrawingSettings(cullingResults, light.visibleLightIndex);
-        //计算sm需要的信息
+        //????sm????????
         cullingResults.ComputeDirectionalShadowMatricesAndCullingPrimitives(
             light.visibleLightIndex, 0, 1, Vector3.zero, tileSize, 0f,
             out Matrix4x4 viewMatrix, out Matrix4x4 projMatrix, out ShadowSplitData shadowSplitData
         );
         //https://docs.unity3d.com/Manual/SL-PlatformDifferences.html
-        //如果是传递LVP（LightViewProjection）矩阵到shader，需要进行如下操作
+        //????????LVP??LightViewProjection??????shader????????????2???
         //projMatrix = GL.GetGPUProjectionMatrix(projMatrix, true);
         //_M = projMatrix * viewMatrix;
-        //shader中:
+        //shader??:
         //mul(_M, posWS));
         shadowSettings.splitData = shadowSplitData;
         dirShadowMatrices[index] = CalcLightMVP(
@@ -154,7 +154,7 @@ public class Shadows
         cmd.SetGlobalDepthBias(0f, 0f);
     }
 
-    //也可以借鉴URP ShadowUtils.GetShadowTransform 写法
+    //???????URP ShadowUtils.GetShadowTransform 锟斤拷??
     static Matrix4x4 CalcLightMVP(Matrix4x4 proj,Matrix4x4 view, Vector2 offset, int split)
     {
         // Currently CullResults ComputeDirectionalShadowMatricesAndCullingPrimitives doesn't
